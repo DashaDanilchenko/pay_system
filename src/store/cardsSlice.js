@@ -8,31 +8,29 @@ const cardsSlice = createSlice({
 
     },
     reducers: {
-        // addTodo(state, action){
-        //     console.log(state)
-        //     console.log(action)
-        //     state.todos.push(
-        //         {id: new Date().toISOString(),
-        //         text: action.payload.text,
-        //         complete:false,}
-        //     )
-        // },
-        // delTodo(state, action){
-        //     state.todos = state.todos.filter(todo => todo.id !== action.payload.id)
-        // },
-        // toggleTodoCompleted(state, action){
-        //     state.todos = state.todos.map(todo => {
-        //           if (todo.id !== action.payload.id) {
-        //             return todo;
-        //           }
-            
-        //           return { ...todo, completed: !todo.completed }
-        //         })
-        // },
+        plusBalance(state, action) {
+          console.log(action)
+            state.cards = state.cards.map(card => {
+                          if (card.id !== action.payload.id) {
+                            return card;
+                          }
+                          return { ...card, balance: 200 }
+                        })
+        },
+
+        minusBalance(state, action) {
+          console.log(action)
+            state.cards = state.cards.map(card => {
+                if (card.id !== action.payload.id) {
+                  return card;
+                }
+                return { ...card, balance: 300 }
+              })
+        },  
     }
 })
 
 
-// export const {addTodo, delTodo, toggleTodoCompleted} = todoSlice.actions
+export const { plusBalance, minusBalance } = cardsSlice.actions
 
 export default cardsSlice.reducer

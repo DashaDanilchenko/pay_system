@@ -1,9 +1,9 @@
-const CardPayOn = ({card}) => {
+const CardPayOn = ({card, setIdOn}) => {
 
   const {id, number, data, balance, name} = card
 
   return (
-    <div className="card_pay" onClick={() => console.log(id, '=====> on card')}>
+    <div className="card_pay" onClick={() => setIdOn(id)}>
       <p>{number}</p>
       <p>{data}</p>
       <p>

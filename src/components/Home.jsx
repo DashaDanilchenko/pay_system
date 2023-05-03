@@ -1,27 +1,33 @@
 import { useState } from "react"
 import CardsPay from "./listPay/CardsPay"
 import CounterAgentsPay from "./listPay/CounterAgentsPay"
-import { useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
+import { minusBalance, plusBalance } from "../store/cardsSlice"
 
 const Home = () => {
 
   const [summa, setSumma] = useState(0)
   const [appointment, setAppointment] = useState('')
 
-  const counterAgent = useSelector(state => state.counterAgent.counterAgent)
-  const cards = useSelector(state => state.cards.cards)
+  const [idFrom, setIdFrom] = useState(null)
+  const [idOn, setIdOn] = useState(null)
 
-function pay (id_from, id_on) {
+  const dispatch = useDispatch()
 
+const pay = () => {
+  console.log(idOn)
+  console.log(idFrom)
+  dispatch(plusBalance({idOn}))
+  dispatch(minusBalance({idFrom}))
 }
 
   return (
     <div>
       <p>from card:
-        <CardsPay/>
+        <CardsPay setIdFrom={setIdFrom}/>
       </p>
       <p>on card:
-      <CounterAgentsPay/>
+      <CounterAgentsPay setIdOn={setIdOn}/>
       </p>
       <form>
         <label htmlFor="summa">
@@ -30,7 +36,7 @@ function pay (id_from, id_on) {
         <label htmlFor="appointment">
         Appointment : <input type="text" id="appointment" name="appointment" value={appointment} onChange={(e) => setAppointment(e.target.value)}/>
         </label>
-        <button>Submit</button>
+        <button type="button" onClick={pay}>Submit</button>
       </form>
     </div>
   )

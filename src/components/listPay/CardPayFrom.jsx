@@ -1,7 +1,14 @@
-const CardPay = () => {
+const CardPayFrom = ({card}) => {
+
+const {id, number, data, balance} = card
+
   return (
-    <div>CardPayFrom</div>
+    <div className="card_pay" onClick={() => console.log(id, '=====> from card')}>
+      <p>{number}</p>
+      <p>{data}</p>
+      <p>{balance}</p>
+    </div>
   )
 }
 
-export default CardPay
+export default CardPayFrom

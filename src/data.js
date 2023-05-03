@@ -22,12 +22,12 @@ export const cards = [
 ]
 
 export const counterAgent = [
-    {id: 'adferf53651f14',
+    {id: 'gsdg6828418',
     number: 2651679781798166 ,
     data: '04/25/27',
     name: 'Yevtushenko Maksim Olegovich ',
     },
-    {id: 'adferf53651f14',
+    {id: 'htrh4524646rtg',
     number: 5627167672173368,
     data: '07/15/28',
     name: 'Kravchenko Maria Andriivna ',
@@ -37,7 +37,7 @@ export const counterAgent = [
     data: '11/25/26',
     name: 'Melnyk Roman Evgeniyovych',
     },
-    {id: 'adferf53651f14',
+    {id: 'hgjfguk54167967',
     number: 5461746716767265,
     data: '09/01/29',
     name: 'Mazur Olga Egorovna',

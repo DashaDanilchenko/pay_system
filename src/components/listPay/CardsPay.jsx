@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux"
+import CardPayFrom from "./CardPayFrom"
 
 const CardsPay = () => {
 
@@ -6,7 +7,9 @@ const CardsPay = () => {
     console.log(cards)
 
   return (
-    <div>CardsPay</div>
+    <div className="card_container">
+      {cards.map((card) => <CardPayFrom key={card.id} card={card}/>)}
+    </div>
   )
 }
 

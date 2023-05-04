@@ -9,7 +9,7 @@ const cards = useSelector(state => state.cards.cards)
   return (
     <div className="card_container">
       {cards.map((card) => <CardPayOn key={card.id} card={card} setIdOn={setIdOn}/>)}
-      {counterAgent.map((card) => <CardPayOn key={card.id} card={card}/>)}
+      {counterAgent.map((card) => <CardPayOn key={card.id} card={card} setIdOn={setIdOn}/>)}
     </div>
   )
 }

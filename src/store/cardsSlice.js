@@ -10,8 +10,6 @@ const cardsSlice = createSlice({
     reducers: {
 
         minusBalance(state, action) {
-
-          console.log(action)
             state.cards = state.cards.map(card => {
                 if (card.id !== action.payload.idFrom.id) {
                   return card;
@@ -21,7 +19,6 @@ const cardsSlice = createSlice({
         },
 
         plusBalance(state, action) {
-          console.log(action)
             state.cards = state.cards.map(card => {
                           if (card.id !== action.payload.idOn.id) {
                             return card;

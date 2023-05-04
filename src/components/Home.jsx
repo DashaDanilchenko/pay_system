@@ -11,10 +11,20 @@ const Home = () => {
 
   const [idFrom, setIdFrom] = useState(null)
   const [idOn, setIdOn] = useState(null)
+  const [summaFrom, setSummaFrom] = useState(null)
 
   const dispatch = useDispatch()
 
-const pay = () => {
+  const pay = () => {
+  if (summa <= 0) {
+    return alert('Enter summa')
+  }
+  if (idOn.id === idFrom.id) {
+    return alert('Choose another card')
+  }
+  if (summaFrom <= summa) {
+    return alert('Not enough money')
+  }
   dispatch(plusBalance({idOn, summa}))
   dispatch(minusBalance({idFrom, summa}))
   setSumma(0)
@@ -25,7 +35,7 @@ const pay = () => {
   return (
     <div>
       <p>from card:</p>
-      <CardsPay setIdFrom={setIdFrom}/>
+      <CardsPay setIdFrom={setIdFrom} setSummaFrom={setSummaFrom}/>
       <p>on card:</p>
       <CounterAgentsPay setIdOn={setIdOn}/>
       <form>

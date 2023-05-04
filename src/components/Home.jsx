@@ -15,23 +15,22 @@ const Home = () => {
   const dispatch = useDispatch()
 
 const pay = () => {
-  console.log(idOn)
-  console.log(idFrom)
-  dispatch(plusBalance({idOn}))
-  dispatch(minusBalance({idFrom}))
+  dispatch(plusBalance({idOn, summa}))
+  dispatch(minusBalance({idFrom, summa}))
+  setSumma(0)
 }
+
+// localStorage.clear()
 
   return (
     <div>
-      <p>from card:
-        <CardsPay setIdFrom={setIdFrom}/>
-      </p>
-      <p>on card:
+      <p>from card:</p>
+      <CardsPay setIdFrom={setIdFrom}/>
+      <p>on card:</p>
       <CounterAgentsPay setIdOn={setIdOn}/>
-      </p>
       <form>
         <label htmlFor="summa">
-        Summa : <input type="text" id="summa" name="summa" value={summa} onChange={(e) => setSumma(e.target.value)}/>
+        Summa : <input type="text" id="summa" name="summa" value={summa} onChange={(e) => setSumma(Number(e.target.value))}/>
         </label>
         <label htmlFor="appointment">
         Appointment : <input type="text" id="appointment" name="appointment" value={appointment} onChange={(e) => setAppointment(e.target.value)}/>

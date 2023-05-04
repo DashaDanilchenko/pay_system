@@ -8,29 +8,35 @@ const cardsSlice = createSlice({
 
     },
     reducers: {
+
+        minusBalance(state, action) {
+
+          console.log(action)
+            state.cards = state.cards.map(card => {
+                if (card.id !== action.payload.idFrom.id) {
+                  return card;
+                }
+                return { ...card, balance: card.balance - action.payload.summa }
+              })
+        },
+
         plusBalance(state, action) {
           console.log(action)
             state.cards = state.cards.map(card => {
-                          if (card.id !== action.payload.id) {
+                          if (card.id !== action.payload.idOn.id) {
                             return card;
                           }
-                          return { ...card, balance: 200 }
+                          return { ...card, balance: card.balance + action.payload.summa }
                         })
         },
-
-        minusBalance(state, action) {
-          console.log(action)
-            state.cards = state.cards.map(card => {
-                if (card.id !== action.payload.id) {
-                  return card;
-                }
-                return { ...card, balance: 300 }
-              })
-        },  
+        
+        delCard(state, action) {
+          state.cards = state.cards.filter(card => card.id !== action.payload.id)
+        },
     }
 })
 
 
-export const { plusBalance, minusBalance } = cardsSlice.actions
+export const { plusBalance, minusBalance, delCard } = cardsSlice.actions
 
 export default cardsSlice.reducer

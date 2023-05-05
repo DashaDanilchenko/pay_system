@@ -1,8 +1,9 @@
 import { useState } from "react"
 import CardsPay from "./listPay/CardsPay"
 import CounterAgentsPay from "./listPay/CounterAgentsPay"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { minusBalance, plusBalance } from "../store/cardsSlice"
+import { newItemHistory } from "../store/historySlice"
 
 const Home = () => {
 
@@ -12,6 +13,10 @@ const Home = () => {
   const [idFrom, setIdFrom] = useState(null)
   const [idOn, setIdOn] = useState(null)
   const [summaFrom, setSummaFrom] = useState(null)
+
+  const [fromNumberCard, setFromNumberCard] = useState('')
+  const [onNumberCard, setOnNumberCard] = useState('')
+  const [name, setName] = useState('')
 
   const dispatch = useDispatch()
 
@@ -25,19 +30,35 @@ const Home = () => {
   if (summaFrom <= summa) {
     return alert('Not enough money')
   }
-  dispatch(plusBalance({idOn, summa}))
-  dispatch(minusBalance({idFrom, summa}))
+  
+  dispatch (plusBalance({idOn, summa}))
+  dispatch (minusBalance({idFrom, summa}))
+  dispatch (newItemHistory({fromNumberCard, onNumberCard, summa, name}))
+  setFromNumberCard('')
+  setOnNumberCard('')
+  setName('')
   setSumma(0)
 }
 
+const history = useSelector(state => state.history.history)
+
 // localStorage.clear()
+console.log(history)
 
   return (
     <div>
       <p>from card:</p>
-      <CardsPay setIdFrom={setIdFrom} setSummaFrom={setSummaFrom}/>
+      <CardsPay 
+      setIdFrom={setIdFrom} 
+      setSummaFrom={setSummaFrom}
+      setFromNumberCard={setFromNumberCard}
+      />
       <p>on card:</p>
-      <CounterAgentsPay setIdOn={setIdOn}/>
+      <CounterAgentsPay 
+      setIdOn={setIdOn}
+      setOnNumberCard={setOnNumberCard}
+      setName={setName}
+      />
       <form>
         <label htmlFor="summa">
         Summa : <input type="text" id="summa" name="summa" value={summa} onChange={(e) => setSumma(Number(e.target.value))}/>

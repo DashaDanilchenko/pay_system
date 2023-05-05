@@ -15,7 +15,8 @@ const historySlice = createSlice({
                 on: action.payload.onNumberCard,
                 summa: action.payload.summa,
                 name: action.payload.name,
-                date: new Date().getDate(),
+                time: `${new Date().getHours()} : ${new Date().getMinutes()} : ${new Date().getSeconds()}`,
+                date: `${new Date().getDay()} / ${new Date().getMonth()} / ${new Date().getFullYear()} `,
             })
         },  
     }

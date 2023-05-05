@@ -1,6 +1,15 @@
+import { useSelector } from "react-redux"
+import ItemHistory from "./ItemHistory"
+
 const History = () => {
+
+  const history = useSelector(state => state.history.history)
+  console.log(history)
+
   return (
-    <div>History</div>
+    <div>
+      {history.map((item) => <ItemHistory key={item.id} item={item}/>)}
+    </div>
   )
 }
 

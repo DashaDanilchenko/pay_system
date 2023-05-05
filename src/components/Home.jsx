@@ -1,7 +1,7 @@
 import { useState } from "react"
 import CardsPay from "./listPay/CardsPay"
 import CounterAgentsPay from "./listPay/CounterAgentsPay"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { minusBalance, plusBalance } from "../store/cardsSlice"
 import { newItemHistory } from "../store/historySlice"
 
@@ -40,10 +40,10 @@ const Home = () => {
   setSumma(0)
 }
 
-const history = useSelector(state => state.history.history)
+
 
 // localStorage.clear()
-console.log(history)
+
 
   return (
     <div>

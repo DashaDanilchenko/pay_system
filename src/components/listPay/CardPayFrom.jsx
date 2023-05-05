@@ -2,7 +2,7 @@ const CardPayFrom = ({card, setIdFrom, setSummaFrom, setFromNumberCard}) => {
 
 const {id, number, data, balance} = card
 
-const dataCard = (id, balance) => {
+const dataCard = (id, balance, number) => {
   setIdFrom(id)
   setSummaFrom(balance.balance)
   setFromNumberCard(number.number)

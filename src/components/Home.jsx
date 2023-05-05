@@ -33,11 +33,12 @@ const Home = () => {
   
   dispatch (plusBalance({idOn, summa}))
   dispatch (minusBalance({idFrom, summa}))
-  dispatch (newItemHistory({fromNumberCard, onNumberCard, summa, name}))
+  dispatch (newItemHistory({fromNumberCard, onNumberCard, summa, name, appointment}))
   setFromNumberCard('')
   setOnNumberCard('')
   setName('')
   setSumma(0)
+  setAppointment('')
 }
 
 
@@ -52,6 +53,7 @@ const Home = () => {
       setIdFrom={setIdFrom} 
       setSummaFrom={setSummaFrom}
       setFromNumberCard={setFromNumberCard}
+      setAppointment={setAppointment}
       />
       <p>on card:</p>
       <CounterAgentsPay 

@@ -1,6 +1,6 @@
 const ItemHistory = ({item}) => {
 
-const {from, on, summa, name, time, date} = item
+const {from, on, summa, name, appointment, time, date} = item
 
   return (
     <div className="item_history">
@@ -8,6 +8,7 @@ const {from, on, summa, name, time, date} = item
        <p>transfer to the card : {on}</p>
        <p>summa : {summa}</p>
        <p>the name of the recipient : {name? name : "transfer of own money"}</p>
+       <p>appointment : {appointment}</p>
        <p>date : {date}</p> 
        <p>time : {time}</p>
     </div>

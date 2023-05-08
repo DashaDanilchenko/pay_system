@@ -7,13 +7,15 @@ import { persistStore, persistReducer, FLUSH,
     REGISTER, } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import cardsReducer from './cardsSlice';
-import historyReducer from './historySlice'
+import historyReducer from './historySlice';
+import counterAgentReducer from './counterAgentsSlice'
 
 
 
 const rootReducer = combineReducers({
     cards: cardsReducer,
     history: historyReducer,
+    counterAgent: counterAgentReducer,
 })
 
 

@@ -6,6 +6,7 @@ import NotFound from './components/NotFound';
 import Cards from './components/Cards';
 import ContrAgents from './components/ContrAgents';
 import History from './components/History';
+import Single from './components/Single';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='cards' element={<Cards/>}/>
         <Route path='contrAgents' element={<ContrAgents/>}/>
         <Route path='history' element={<History/>}/>
+        <Route path='/:id' element={<Single/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Route>
     </Routes>

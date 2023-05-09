@@ -21,7 +21,7 @@ const Home = () => {
   const dispatch = useDispatch()
 
   const pay = () => {
-  if (summa <= 0) {
+  if (summa <= 0 || typeof summa !== Number) {
     return alert('Enter summa')
   }
   if (idOn.id === idFrom.id) {
@@ -63,7 +63,7 @@ const Home = () => {
       />
       <form>
         <label htmlFor="summa">
-        Summa : <input type="text" id="summa" name="summa" value={summa} onChange={(e) => setSumma(Number(e.target.value))}/>
+        Summa : <input type="text" id="summa" name="summa" value={summa} onChange={(e) => setSumma(e.target.value)}/>
         </label>
         <label htmlFor="appointment">
         Appointment : <input type="text" id="appointment" name="appointment" value={appointment} onChange={(e) => setAppointment(e.target.value)}/>

@@ -6,7 +6,7 @@ import { delCardCA } from "../store/counterAgentsSlice";
 
 const ContrAgents = () => {
 
-  const counterAgent = useSelector (state => state.counterAgent.cards)
+  const counterAgent = useSelector (state => state.counterAgent.counterAgent)
   const dispatch = useDispatch()
 
   return (

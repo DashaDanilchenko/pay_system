@@ -9,7 +9,6 @@ const counterAgentSlice = createSlice({
     reducers: {
         
         delCardCA(state, action) {
-            console.log(action.payload)
             state.counterAgent = state.counterAgent.filter(card => card.id !== action.payload)
         },
     }

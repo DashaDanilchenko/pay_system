@@ -4,7 +4,8 @@ import CardPayOn from "./CardPayOn"
 const CounterAgentsPay = ({setIdOn, setOnNumberCard, setName}) => {
 
 const cards = useSelector(state => state.cards.cards)
-const counterAgent = useSelector (state => state.counterAgent.cards)
+const counterAgent = useSelector (state => state.counterAgent.counterAgent)
+console.log(counterAgent)
 
   return (
     <div className="card_container">

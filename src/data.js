@@ -43,3 +43,13 @@ export const counterAgent = [
     name: 'Mazur Olga Egorovna',
     },
 ]
+
+export function genNumber() {
+    const allStr = '1234567890';
+    let str = '';
+    for (let i = 0; i < 16; i++) {
+        let pos = Math.floor(Math.random() * allStr.length);
+        str += allStr.substring(pos,pos+1);
+    }
+    return str;
+}

@@ -7,7 +7,7 @@ const Single = () => {
   const {id}= useParams()
 
   const cards = useSelector(state => state.cards.cards)
-  const counterAgent = useSelector (state => state.counterAgent.cards)
+  const counterAgent = useSelector (state => state.counterAgent.counterAgent)
 
   const [card, setCard] = useState({})
 

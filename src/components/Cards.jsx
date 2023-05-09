@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import Card from "./listPay/Card"
 import { Link } from "react-router-dom"
-import { delCard } from "../store/cardsSlice"
+import { addCard, delCard } from "../store/cardsSlice"
 
 const Cards = () => {
 
@@ -21,7 +21,7 @@ const Cards = () => {
         )}
       </div>
 
-      <button>Add new card</button>
+      <button onClick={() => dispatch(addCard())}>Add new card</button>
     </div>
   )
 }

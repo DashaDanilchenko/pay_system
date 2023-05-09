@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { cards } from "../data";
+import { genNumber } from "../data"
 
 const cardsSlice = createSlice({
     name: 'cards',
@@ -30,10 +31,19 @@ const cardsSlice = createSlice({
         delCard(state, action) {
           state.cards = state.cards.filter(card => card.id !== action.payload)
         },
+
+        addCard(state) {
+          state.cards.push({
+            id: genNumber(),
+            number: genNumber(),
+            data: `${new Date().getDay()}/${new Date().getMonth()}/${new Date().getFullYear()} `,
+            balance: 0
+          })
+        }
     }
 })
 
 
-export const { plusBalance, minusBalance, delCard } = cardsSlice.actions
+export const { plusBalance, minusBalance, delCard, addCard } = cardsSlice.actions
 
 export default cardsSlice.reducer

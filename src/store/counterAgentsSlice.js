@@ -5,17 +5,17 @@ const counterAgentSlice = createSlice({
     name: 'counterAgent',
     initialState: {
         counterAgent: counterAgent,
-
     },
     reducers: {
         
-        delCard(state, action) {
-          state.counterAgent = state.counterAgent.filter(card => card.id !== action.payload.id)
+        delCardCA(state, action) {
+            console.log(action.payload)
+            state.counterAgent = state.counterAgent.filter(card => card.id !== action.payload)
         },
     }
 })
 
 
-export const { delCard } = counterAgentSlice.actions
+export const { delCardCA } = counterAgentSlice.actions
 
 export default counterAgentSlice.reducer

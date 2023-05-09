@@ -1,11 +1,10 @@
 import { useSelector } from "react-redux"
 import CardPayOn from "./CardPayOn"
-import { counterAgent } from "../../data"
 
 const CounterAgentsPay = ({setIdOn, setOnNumberCard, setName}) => {
 
 const cards = useSelector(state => state.cards.cards)
-// const counterAgent = useSelector(state => state.counterAgent.counterAgent)
+const counterAgent = useSelector (state => state.counterAgent.cards)
 
   return (
     <div className="card_container">

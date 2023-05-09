@@ -1,12 +1,13 @@
 
 import Card from "./listPay/Card";
 import { Link } from "react-router-dom";
-// import { useSelector } from "react-redux";
-import { counterAgent } from "../data"
+import { useDispatch, useSelector } from "react-redux";
+import { delCardCA } from "../store/counterAgentsSlice";
 
 const ContrAgents = () => {
 
-  // const counterAgent = useSelector (state => state.counterAgent.counterAgent)
+  const counterAgent = useSelector (state => state.counterAgent.cards)
+  const dispatch = useDispatch()
 
   return (
     <div>
@@ -16,7 +17,7 @@ const ContrAgents = () => {
           <Link to={`/${card.id}`}>
             <Card card={card} />
           </Link>
-            <button>delete</button>
+            <button onClick={() => dispatch(delCardCA(card.id))}>delete</button>
         </div>
        )}
       </div>

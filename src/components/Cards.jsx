@@ -1,10 +1,12 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import Card from "./listPay/Card"
 import { Link } from "react-router-dom"
+import { delCard } from "../store/cardsSlice"
 
 const Cards = () => {
 
   const cards = useSelector(state => state.cards.cards)
+  const dispatch = useDispatch()
 
   return (
     <div>
@@ -14,7 +16,7 @@ const Cards = () => {
         <Link to={`/${card.id}`}>
           <Card card={card} />
         </Link>
-        <button>delete</button>
+        <button onClick={() => dispatch(delCard(card.id))}>delete</button>
         </div> 
         )}
       </div>

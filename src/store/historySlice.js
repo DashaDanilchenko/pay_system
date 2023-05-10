@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { genTime, genData } from "../helpers"
 
 const historySlice = createSlice({
     name: 'history',
@@ -16,8 +17,8 @@ const historySlice = createSlice({
                 summa: action.payload.summa,
                 name: action.payload.name,
                 appointment: action.payload.appointment,
-                time: `${new Date().getHours()} : ${new Date().getMinutes()} : ${new Date().getSeconds()}`,
-                date: `${new Date().getDay()} / ${new Date().getMonth()} / ${new Date().getFullYear()} `,
+                time: genTime(),
+                date: genData(),
             })
         },  
     }

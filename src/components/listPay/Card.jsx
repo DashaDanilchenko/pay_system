@@ -1,6 +1,6 @@
 const Card = ({card}) => {
 
-  const {id, number, data, balance, name} = card
+  const {id, number, data, balance,  surname, name, patronymic} = card
 
   return (
     <div className="card_pay"  onClick={() => console.log({id})}>
@@ -8,7 +8,7 @@ const Card = ({card}) => {
       <p>{data}</p>
       <p>{balance
       ? balance
-      : name
+      : `${surname} ${name} ${patronymic}`
       }</p>
     </div>
   )

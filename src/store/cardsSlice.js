@@ -15,7 +15,7 @@ const cardsSlice = createSlice({
                 if (card.id !== action.payload.idFrom.id) {
                   return card;
                 }
-                return { ...card, balance: card.balance - action.payload.summa }
+                return { ...card, balance: card.balance - Number(action.payload.summa) }
               })
         },
 
@@ -24,12 +24,12 @@ const cardsSlice = createSlice({
                           if (card.id !== action.payload.idOn.id) {
                             return card;
                           }
-                          return { ...card, balance: card.balance + action.payload.summa }
+                          return { ...card, balance: card.balance + Number(action.payload.summa) }
                         })
         },
         
         delCard(state, action) {
-          state.cards = state.cards.filter(card => card.id !== action.payload)
+          state.cards = state.cards.filter(card => card.id !== action.payload.summa)
         },
 
         addCard(state) {

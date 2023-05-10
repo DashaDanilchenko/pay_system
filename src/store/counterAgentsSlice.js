@@ -13,11 +13,14 @@ const counterAgentSlice = createSlice({
             state.counterAgent = state.counterAgent.filter(card => card.id !== action.payload)
         },
         addCardCA(state, action) {
+            console.log(action)
             state.counterAgent.push({
               id: randomId(),
               number: genNumber(),
               data: genData(),
+              surname: action.payload.surname,
               name: action.payload.name,
+              patronymic: action.payload.patronymic,
             })
           }
     }

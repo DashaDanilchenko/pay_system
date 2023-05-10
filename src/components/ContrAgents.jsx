@@ -8,6 +8,8 @@ import { useState } from "react";
 const ContrAgents = () => {
 
   const [name, setName] = useState('')
+  const [surname, setSurname] = useState('')
+  const [patronymic, setPatronymic] = useState('')
 
   const counterAgent = useSelector (state => state.counterAgent.counterAgent)
   const dispatch = useDispatch()
@@ -16,10 +18,16 @@ const ContrAgents = () => {
     <div>
       <div className="card_container">
       <div>
+      <label htmlFor="surname">
+      Surname : <input type="text" id="surname" name="surname" value={surname} onChange={(e) => setSurname(e.target.value)}/>
+      </label> 
       <label htmlFor="name">
-        <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)}/>
-      </label>  
-        <button onClick={() => dispatch(addCardCA({name}))}>Add new card</button>
+        Name : <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)}/>
+      </label>
+      <label htmlFor="patronymic">
+      Patronymic : <input type="text" id="patronymic" name="patronymic" value={patronymic} onChange={(e) => setPatronymic(e.target.value)}/>
+      </label> 
+        <button onClick={() => dispatch(addCardCA({name, surname, patronymic}))}>Add new card</button>
       </div>
         {counterAgent.map((card) =>
         <div key={card.id}> 

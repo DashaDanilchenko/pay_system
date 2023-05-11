@@ -4,7 +4,6 @@ import ItemHistory from "./ItemHistory"
 const History = () => {
 
   const history = useSelector(state => state.history.history)
-  console.log(history)
 
   return (
     <div>

@@ -14,10 +14,24 @@ const ContrAgents = () => {
   const counterAgent = useSelector (state => state.counterAgent.counterAgent)
   const dispatch = useDispatch()
 
+  const createCardCA = () => {
+    dispatch(addCardCA({name, surname, patronymic}))
+    setSurname('')
+    setName('')
+    setPatronymic('')
+  }
+
+  const editCardCA = (id, surname, name, patronymic) => {
+    setSurname(surname)
+    setName(name)
+    setPatronymic(patronymic)
+    dispatch(delCardCA(id))
+  }
+
   return (
     <div>
       <div className="card_container">
-      <div>
+      <form>
       <label htmlFor="surname">
       Surname : <input type="text" id="surname" name="surname" value={surname} onChange={(e) => setSurname(e.target.value)}/>
       </label> 
@@ -27,14 +41,15 @@ const ContrAgents = () => {
       <label htmlFor="patronymic">
       Patronymic : <input type="text" id="patronymic" name="patronymic" value={patronymic} onChange={(e) => setPatronymic(e.target.value)}/>
       </label> 
-        <button onClick={() => dispatch(addCardCA({name, surname, patronymic}))}>Add new card</button>
-      </div>
+        <button onClick={createCardCA}>Add new card</button>
+      </form>
         {counterAgent.map((card) =>
         <div key={card.id}> 
           <Link to={`/${card.id}`}>
             <Card card={card} />
           </Link>
             <button onClick={() => dispatch(delCardCA(card.id))}>delete</button>
+            <button onClick={() => editCardCA(card.id, card.surname, card.name, card.patronymic)}>edit</button>
         </div>
        )}
       </div>

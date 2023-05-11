@@ -29,7 +29,7 @@ const cardsSlice = createSlice({
         },
         
         delCard(state, action) {
-          state.cards = state.cards.filter(card => card.id !== action.payload.summa)
+          state.cards = state.cards.filter(card => card.id !== action.payload)
         },
 
         addCard(state) {
@@ -37,7 +37,7 @@ const cardsSlice = createSlice({
             id: randomId(),
             number: genNumber(),
             data: genData(),
-            balance: 0
+            balance: 100,
           })
         }
     }

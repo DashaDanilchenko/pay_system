@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { genTime, genData } from "../helpers"
+import { randomId, genTime, genData } from "../helpers"
 
 const historySlice = createSlice({
     name: 'history',
@@ -11,7 +11,7 @@ const historySlice = createSlice({
 
         newItemHistory(state, action) {
             state.history.push({
-                id: new Date().toISOString(),
+                id: randomId(),
                 from: action.payload.fromNumberCard,
                 on: action.payload.onNumberCard,
                 summa: action.payload.summa,
@@ -19,6 +19,7 @@ const historySlice = createSlice({
                 appointment: action.payload.appointment,
                 time: genTime(),
                 date: genData(),
+                balance: action.payload.balance,
             })
         },  
     }

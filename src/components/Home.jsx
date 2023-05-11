@@ -17,6 +17,7 @@ const Home = () => {
   const [fromNumberCard, setFromNumberCard] = useState('')
   const [onNumberCard, setOnNumberCard] = useState('')
   const [name, setName] = useState('')
+  const [balance, setBalance] = useState('')
 
   const dispatch = useDispatch()
 
@@ -33,7 +34,7 @@ const Home = () => {
   
   dispatch (plusBalance({idOn, summa}))
   dispatch (minusBalance({idFrom, summa}))
-  dispatch (newItemHistory({fromNumberCard, onNumberCard, summa, name, appointment}))
+  dispatch (newItemHistory({fromNumberCard, onNumberCard, summa, name, appointment, balance}))
   setFromNumberCard('')
   setOnNumberCard('')
   setName('')
@@ -60,6 +61,7 @@ const Home = () => {
       setIdOn={setIdOn}
       setOnNumberCard={setOnNumberCard}
       setName={setName}
+      setBalance={setBalance}
       />
       <form>
         <label htmlFor="summa">

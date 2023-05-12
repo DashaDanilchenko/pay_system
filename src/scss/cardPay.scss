@@ -1,7 +1,54 @@
-.card_container {
-    width: 1400px;
+.container {
+    // display: flex;
+}
+
+.container_from {
     display: flex;
-    flex-wrap: wrap;
+    position: fixed;
+    // right: 0;
+    flex-direction: column;
+    width: 500px;
+    padding: 40px;
+    background: #F8F8F8;
+    height: 300px;
+    box-sizing: border-box;
+}
+
+.container_on {
+    display: flex;
+    position: fixed;
+    right: 0;
+    // left: 500px;
+    // top: 400px;
+    flex-direction: column;
+    width: 500px;
+    padding: 40px;
+    background: #F8F8F8;
+    height: 300px;
+    box-sizing: border-box;
+}
+
+.container_form {
+    display: flex;
+    position: fixed;
+    // right: 0;
+    top: 400px;
+    flex-direction: column;
+    width: 100vw;
+    padding: 40px;
+    background: #F8F8F8;
+    height: 300px;
+    box-sizing: border-box;
+}
+
+.card_container {
+    overflow: auto;
+    // overflow: scroll;
+    // width: 600px;
+    // height: 500px;
+    // position: fixed;
+    // display: flex;
+    // flex-wrap: wrap;
 }
 
 

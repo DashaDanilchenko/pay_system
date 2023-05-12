@@ -48,22 +48,29 @@ const Home = () => {
 
 
   return (
-    <div>
-      <p>from card:</p>
+    <div className="container">
+      <h2>Card transfer</h2>
+      <div className="container_from">
+      <p>Choose the card from which funds will be debited:</p>
       <CardsPay 
       setIdFrom={setIdFrom} 
       setSummaFrom={setSummaFrom}
       setFromNumberCard={setFromNumberCard}
       setAppointment={setAppointment}
       />
-      <p>on card:</p>
+      </div>
+     <div className="container_on">
+     <p>Choose the card to which the money will be transferred:</p>
       <CounterAgentsPay 
       setIdOn={setIdOn}
       setOnNumberCard={setOnNumberCard}
       setName={setName}
       setBalance={setBalance}
       />
-      <form>
+     </div>
+     
+      <form className="container_form">
+        <p>Enter the transfer amount</p>
         <label htmlFor="summa">
         Summa : <input type="number" id="summa" name="summa" value={summa} onChange={(e) => setSumma(e.target.value)}/>
         </label>

@@ -32,6 +32,28 @@ const cardsSlice = createSlice({
           state.cards = state.cards.filter(card => card.id !== action.payload)
         },
 
+        selectedCardFrom(state, action) {
+          // console.log(action)
+          state.cards = state.cards.map(card => { return {...card, colorFrom: false}})
+          state.cards = state.cards.map(card => {
+            if (card.id !== action.payload.id) {
+              return card;
+            }
+            return { ...card, colorFrom: !card.colorFrom}
+          })
+        },
+
+        selectedCardOn(state, action) {
+          // console.log(action)
+          state.cards = state.cards.map(card => { return {...card, colorOn: false}})
+          state.cards = state.cards.map(card => {
+            if (card.id !== action.payload.id) {
+              return card;
+            }
+            return { ...card, colorOn: !card.colorOn}
+          })
+        },
+
         addCard(state) {
           state.cards.push({
             id: randomId(),
@@ -44,6 +66,6 @@ const cardsSlice = createSlice({
 })
 
 
-export const { plusBalance, minusBalance, delCard, addCard } = cardsSlice.actions
+export const { plusBalance, minusBalance, selectedCardFrom, selectedCardOn , delCard, addCard } = cardsSlice.actions
 
 export default cardsSlice.reducer

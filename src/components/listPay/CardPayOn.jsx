@@ -1,20 +1,28 @@
+import { useDispatch } from "react-redux"
+import { selectedCardOn } from "../../store/cardsSlice"
+import { selectedCardOnCA } from "../../store/counterAgentsSlice"
+
 const CardPayOn = ({card, setIdOn, setOnNumberCard, setName, setBalance}) => {
 
-  const {id, number, data, balance, name, surname, patronymic} = card
+  const {id, number, data, balance, my, name, surname, patronymic, colorOn} = card
+
+  const dispatch = useDispatch()
 
   const dataCard = (id, number, surname, name, patronymic, balance) => {
     setIdOn(id)
     setOnNumberCard(number.number)
     setName(`${surname.surname} ${name.name} ${patronymic.patronymic}`)
     setBalance(balance.balance)
+    dispatch (selectedCardOn(id))
+    dispatch (selectedCardOnCA(id))
   }
 
   return (
-    <div className="card_pay" onClick={() => dataCard({id}, {number}, {surname}, {name}, {patronymic}, {balance})}>
+    <div className={`card_pay ${colorOn? 'color': ''}`} onClick={() => dataCard({id}, {number}, {surname}, {name}, {patronymic}, {balance})}>
       <p>{number}</p>
       <p>{data}</p>
       <p>
-        {balance
+        {my
         ? balance
         :`${surname} ${name} ${patronymic}`}
       </p>

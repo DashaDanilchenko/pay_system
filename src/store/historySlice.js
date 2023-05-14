@@ -10,6 +10,7 @@ const historySlice = createSlice({
     reducers: {
 
         newItemHistory(state, action) {
+            console.log(action)
             state.history.push({
                 id: randomId(),
                 from: action.payload.fromNumberCard,
@@ -19,13 +20,18 @@ const historySlice = createSlice({
                 appointment: action.payload.appointment,
                 time: genTime(),
                 date: genData(),
-                balance: action.payload.balance,
+                my: action.payload.isMy,
+                error: action.payload.isError,
             })
-        },  
+        }, 
+        
+        deleteItemHistory(state, action) {
+            state.history = state.history.filter(card => card.id !== action.payload)
+        }
     }
 })
 
 
-export const { newItemHistory } = historySlice.actions
+export const { newItemHistory, deleteItemHistory } = historySlice.actions
 
 export default historySlice.reducer

@@ -7,24 +7,16 @@ const cards = useSelector(state => state.cards.cards)
 const counterAgent = useSelector (state => state.counterAgent.counterAgent)
 
   return (
-    <div className="card_container">
+    <div className="card_select">
       {cards.map((card) => 
       <CardPayOn 
       key={card.id} 
       card={card} 
-      // setIdOn={setIdOn}
-      // setOnNumberCard={setOnNumberCard}
-      // setName={setName}
-      // setBalance={setBalance}
       />)}
       {counterAgent.map((card) => 
       <CardPayOn 
       key={card.id} 
       card={card} 
-      // setIdOn={setIdOn}
-      // setOnNumberCard={setOnNumberCard}
-      // setName={setName}
-      // setBalance={setBalance}
       />)}
     </div>
   )

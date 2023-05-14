@@ -1,9 +1,9 @@
 const Card = ({card}) => {
 
-  const {id, number, data, balance,  surname, name, patronymic, my} = card
+  const { number, data, balance,  surname, name, patronymic, my} = card
 
   return (
-    <div className="card_pay"  onClick={() => console.log({id})}>
+    <div className="card_pay">
       <p>{number}</p>
       <p>{data}</p>
       <p>{my

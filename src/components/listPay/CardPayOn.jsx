@@ -10,13 +10,14 @@ const CardPayOn = ({card}) => {
 
   const dispatch = useDispatch()
 
-  const {setIdOn, setOnNumberCard, setName, setBalance } = useContext(Context)
+  const {setIdOn, setOnNumberCard, setName, setIsMy } = useContext(Context)
 
-  const dataCard = (id, number, surname, name, patronymic, balance) => {
+  const dataCard = (id, number, surname, name, patronymic, my) => {
+    console.log(my)
     setIdOn(id)
     setOnNumberCard(number.number)
     setName(`${surname.surname} ${name.name} ${patronymic.patronymic}`)
-    setBalance(balance.balance)
+    setIsMy(my.my)
     dispatch (resetStylesOn())
     dispatch (resetStylesOnCA())
     dispatch (selectedCardOn(id))
@@ -24,7 +25,7 @@ const CardPayOn = ({card}) => {
   }
 
   return (
-    <div className={`card_pay ${colorOn? 'color': ''}`} onClick={() => dataCard({id}, {number}, {surname}, {name}, {patronymic}, {balance})}>
+    <div className={`card_pay ${colorOn? 'color': ''}`} onClick={() => dataCard({id}, {number}, {surname}, {name}, {patronymic}, {my})}>
       <p>{number}</p>
       <p>{data}</p>
       <p>

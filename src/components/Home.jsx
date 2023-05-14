@@ -19,32 +19,47 @@ const Home = () => {
   const [fromNumberCard, setFromNumberCard] = useState('')
   const [onNumberCard, setOnNumberCard] = useState('')
   const [name, setName] = useState('')
-  const [balance, setBalance] = useState('')
+  const [isMy, setIsMy] = useState(false)
+  const [isError, setIsError] = useState(false)
 
   const dispatch = useDispatch()
 
+  function conditions() {
+    if (summa <= 0 ) {
+      setIsError(true)
+      return alert('Enter summa')
+    }
+    if (idOn.id === idFrom.id) {
+      setIsError(true)
+      return alert('Choose another card')
+    }
+    if (summaFrom <= summa) {
+      setIsError(true)
+      return alert('Not enough money')
+    }
+  }
+
+  function reset() {
+    dispatch (resetStylesFrom())
+    dispatch (resetStylesOn())
+    dispatch (resetStylesOnCA())
+    setFromNumberCard('')
+    setOnNumberCard('')
+    setName('')
+    setSumma(0)
+    setAppointment('')
+    setIsError(false)
+  }
+
   const pay = () => {
-  if (summa <= 0 ) {
-    return alert('Enter summa')
-  }
-  if (idOn.id === idFrom.id) {
-    return alert('Choose another card')
-  }
-  if (summaFrom <= summa) {
-    return alert('Not enough money')
-  }
+  
+  conditions()
   
   dispatch (plusBalance({idOn, summa}))
   dispatch (minusBalance({idFrom, summa}))
-  dispatch (newItemHistory({fromNumberCard, onNumberCard, summa, name, appointment, balance}))
-  dispatch (resetStylesFrom())
-  dispatch (resetStylesOn())
-  dispatch (resetStylesOnCA())
-  setFromNumberCard('')
-  setOnNumberCard('')
-  setName('')
-  setSumma(0)
-  setAppointment('')
+  dispatch (newItemHistory({fromNumberCard, onNumberCard, summa, name, appointment, isMy, isError}))
+  
+  reset()
 }
 
 
@@ -55,34 +70,23 @@ const context = {
   setIdFrom,
   setSummaFrom,
   setFromNumberCard, 
-  // setAppointment,
   setIdOn,
   setOnNumberCard,
   setName,
-  setBalance,
+  setIsMy,
 };
 
   return (
     <Context.Provider value={ context }>
-      <div className="container">
+      <div >
       <h2>Card transfer</h2>
       <div className="container_from">
       <p>Choose the card from which funds will be debited:</p>
-      <CardsPay 
-      // setIdFrom={setIdFrom} 
-      // setSummaFrom={setSummaFrom}
-      // setFromNumberCard={setFromNumberCard}
-      // setAppointment={setAppointment}
-      />
+      <CardsPay />
       </div>
      <div className="container_on">
      <p>Choose the card to which the money will be transferred:</p>
-      <CounterAgentsPay 
-      // setIdOn={setIdOn}
-      // setOnNumberCard={setOnNumberCard}
-      // setName={setName}
-      // setBalance={setBalance}
-      />
+      <CounterAgentsPay />
      </div>
      
       <form className="container_form">

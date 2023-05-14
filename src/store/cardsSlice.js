@@ -61,9 +61,10 @@ const cardsSlice = createSlice({
         addCard(state) {
           state.cards.push({
             id: randomId(),
+            my: true,
             number: genNumber(),
             data: genData(),
-            balance: 100,
+            balance: 0,
           })
         }
     }

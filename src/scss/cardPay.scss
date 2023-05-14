@@ -1,11 +1,11 @@
-.container {
-    // display: flex;
+.card_container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .container_from {
     display: flex;
     position: fixed;
-    // right: 0;
     flex-direction: column;
     width: 500px;
     padding: 40px;
@@ -18,8 +18,6 @@
     display: flex;
     position: fixed;
     right: 0;
-    // left: 500px;
-    // top: 400px;
     flex-direction: column;
     width: 500px;
     padding: 40px;
@@ -31,7 +29,6 @@
 .container_form {
     display: flex;
     position: fixed;
-    // right: 0;
     top: 400px;
     flex-direction: column;
     width: 100vw;
@@ -41,14 +38,8 @@
     box-sizing: border-box;
 }
 
-.card_container {
+.card_select {
     overflow: auto;
-    // overflow: scroll;
-    // width: 600px;
-    // height: 500px;
-    // position: fixed;
-    // display: flex;
-    // flex-wrap: wrap;
 }
 
 

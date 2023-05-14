@@ -5,7 +5,7 @@ export const cards = [
     balance: 20000,
     colorFrom: false,
     colorOn: false,
-    my:true
+    my:true,
     },
     {id: '4564164fgrtg',
     number: 6416876716767167,
@@ -13,7 +13,7 @@ export const cards = [
     balance: 30000,
     colorFrom: false,
     colorOn: false,
-    my:true
+    my:true,
     },
     {id: ' dhy74987muyt',
     number: 4526817672246587,
@@ -21,7 +21,7 @@ export const cards = [
     balance: 40000,
     colorFrom: false,
     colorOn: false,
-    my:true
+    my:true,
     },
     {id: 'jjjj654hgj465',
     number: 5264164264578714,
@@ -29,7 +29,7 @@ export const cards = [
     balance: 50000,
     colorFrom: false,
     colorOn: false,
-    my:true
+    my:true,
     },
 ]
 
@@ -41,7 +41,7 @@ export const counterAgent = [
     name: 'Maksim ',
     patronymic: 'Olegovich ',
     colorOn:false,
-    my:false
+    my:false,
     },
     {id: 'htrh4524646rtg',
     number: 5627167672173368,
@@ -50,7 +50,7 @@ export const counterAgent = [
     name: 'Maria',
     patronymic: 'Andriivna ',
     colorOn:false,
-    my:false
+    my:false,
     },
     {id: 'adferf53651f14',
     number: 65136517169+9126 ,
@@ -59,7 +59,7 @@ export const counterAgent = [
     name: 'Roman',
     patronymic: 'Evgeniyovych',
     colorOn:false,
-    my:false
+    my:false,
     },
     {id: 'hgjfguk54167967',
     number: 5461746716767265,
@@ -68,7 +68,7 @@ export const counterAgent = [
     name: 'Olga',
     patronymic: 'Egorovna',
     colorOn:false,
-    my:false
+    my:false,
     },
 ]
 

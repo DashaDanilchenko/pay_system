@@ -7,7 +7,11 @@ const History = () => {
 
   return (
     <div>
-      {history.map((item) => <ItemHistory key={item.id} item={item}/>)}
+      {history.map((item) =>
+        item.error
+      ? ''
+      : <ItemHistory key={item.id} item={item}/>
+      )}
     </div>
   )
 }

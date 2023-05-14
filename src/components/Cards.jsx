@@ -20,7 +20,6 @@ const Cards = () => {
         </div> 
         )}
       </div>
-
       <button onClick={() => dispatch(addCard())}>Add new card</button>
     </div>
   )

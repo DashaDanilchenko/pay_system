@@ -6,13 +6,10 @@ const CardsPay = () => {
     const cards = useSelector(state => state.cards.cards)
 
   return (
-    <div className="card_container">
+    <div className="card_select">
       {cards.map((card) => 
       <CardPayFrom key={card.id} 
       card={card} 
-      // setIdFrom={setIdFrom} 
-      // setSummaFrom={setSummaFrom}
-      // setFromNumberCard={setFromNumberCard}
       />)}
     </div>
   )

@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux"
 import { minusBalance, plusBalance, resetStylesFrom, resetStylesOn } from "../store/cardsSlice"
 import { newItemHistory } from "../store/historySlice"
 import { resetStylesOnCA } from "../store/counterAgentsSlice"
+import Context from "../Context"
 
 const Home = () => {
 
@@ -50,26 +51,37 @@ const Home = () => {
 
 // localStorage.clear()
 
+const context = { 
+  setIdFrom,
+  setSummaFrom,
+  setFromNumberCard, 
+  // setAppointment,
+  setIdOn,
+  setOnNumberCard,
+  setName,
+  setBalance,
+};
 
   return (
-    <div className="container">
+    <Context.Provider value={ context }>
+      <div className="container">
       <h2>Card transfer</h2>
       <div className="container_from">
       <p>Choose the card from which funds will be debited:</p>
       <CardsPay 
-      setIdFrom={setIdFrom} 
-      setSummaFrom={setSummaFrom}
-      setFromNumberCard={setFromNumberCard}
-      setAppointment={setAppointment}
+      // setIdFrom={setIdFrom} 
+      // setSummaFrom={setSummaFrom}
+      // setFromNumberCard={setFromNumberCard}
+      // setAppointment={setAppointment}
       />
       </div>
      <div className="container_on">
      <p>Choose the card to which the money will be transferred:</p>
       <CounterAgentsPay 
-      setIdOn={setIdOn}
-      setOnNumberCard={setOnNumberCard}
-      setName={setName}
-      setBalance={setBalance}
+      // setIdOn={setIdOn}
+      // setOnNumberCard={setOnNumberCard}
+      // setName={setName}
+      // setBalance={setBalance}
       />
      </div>
      
@@ -84,6 +96,8 @@ const Home = () => {
         <button type="button" onClick={pay}>Submit</button>
       </form>
     </div>
+    </Context.Provider>
+    
   )
 }
 

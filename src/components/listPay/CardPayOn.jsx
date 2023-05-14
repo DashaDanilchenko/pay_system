@@ -1,12 +1,16 @@
 import { useDispatch } from "react-redux"
 import { resetStylesOn, selectedCardOn } from "../../store/cardsSlice"
 import { resetStylesOnCA, selectedCardOnCA } from "../../store/counterAgentsSlice"
+import { useContext } from "react"
+import Context from "../../Context"
 
-const CardPayOn = ({card, setIdOn, setOnNumberCard, setName, setBalance}) => {
+const CardPayOn = ({card}) => {
 
   const {id, number, data, balance, my, name, surname, patronymic, colorOn} = card
 
   const dispatch = useDispatch()
+
+  const {setIdOn, setOnNumberCard, setName, setBalance } = useContext(Context)
 
   const dataCard = (id, number, surname, name, patronymic, balance) => {
     setIdOn(id)

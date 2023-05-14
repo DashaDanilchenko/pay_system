@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import CardPayFrom from "./CardPayFrom"
 
-const CardsPay = ({setIdFrom, setSummaFrom, setFromNumberCard}) => {
+const CardsPay = () => {
 
     const cards = useSelector(state => state.cards.cards)
 
@@ -10,9 +10,9 @@ const CardsPay = ({setIdFrom, setSummaFrom, setFromNumberCard}) => {
       {cards.map((card) => 
       <CardPayFrom key={card.id} 
       card={card} 
-      setIdFrom={setIdFrom} 
-      setSummaFrom={setSummaFrom}
-      setFromNumberCard={setFromNumberCard}
+      // setIdFrom={setIdFrom} 
+      // setSummaFrom={setSummaFrom}
+      // setFromNumberCard={setFromNumberCard}
       />)}
     </div>
   )

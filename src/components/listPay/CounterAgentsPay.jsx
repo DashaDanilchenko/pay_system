@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import CardPayOn from "./CardPayOn"
 
-const CounterAgentsPay = ({setIdOn, setOnNumberCard, setName, setBalance}) => {
+const CounterAgentsPay = () => {
 
 const cards = useSelector(state => state.cards.cards)
 const counterAgent = useSelector (state => state.counterAgent.counterAgent)
@@ -12,19 +12,19 @@ const counterAgent = useSelector (state => state.counterAgent.counterAgent)
       <CardPayOn 
       key={card.id} 
       card={card} 
-      setIdOn={setIdOn}
-      setOnNumberCard={setOnNumberCard}
-      setName={setName}
-      setBalance={setBalance}
+      // setIdOn={setIdOn}
+      // setOnNumberCard={setOnNumberCard}
+      // setName={setName}
+      // setBalance={setBalance}
       />)}
       {counterAgent.map((card) => 
       <CardPayOn 
       key={card.id} 
       card={card} 
-      setIdOn={setIdOn}
-      setOnNumberCard={setOnNumberCard}
-      setName={setName}
-      setBalance={setBalance}
+      // setIdOn={setIdOn}
+      // setOnNumberCard={setOnNumberCard}
+      // setName={setName}
+      // setBalance={setBalance}
       />)}
     </div>
   )

@@ -2,8 +2,9 @@ import { useState } from "react"
 import CardsPay from "./listPay/CardsPay"
 import CounterAgentsPay from "./listPay/CounterAgentsPay"
 import { useDispatch } from "react-redux"
-import { minusBalance, plusBalance } from "../store/cardsSlice"
+import { minusBalance, plusBalance, resetStylesFrom, resetStylesOn } from "../store/cardsSlice"
 import { newItemHistory } from "../store/historySlice"
+import { resetStylesOnCA } from "../store/counterAgentsSlice"
 
 const Home = () => {
 
@@ -35,6 +36,9 @@ const Home = () => {
   dispatch (plusBalance({idOn, summa}))
   dispatch (minusBalance({idFrom, summa}))
   dispatch (newItemHistory({fromNumberCard, onNumberCard, summa, name, appointment, balance}))
+  dispatch (resetStylesFrom())
+  dispatch (resetStylesOn())
+  dispatch (resetStylesOnCA())
   setFromNumberCard('')
   setOnNumberCard('')
   setName('')

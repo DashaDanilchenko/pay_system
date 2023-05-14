@@ -18,16 +18,18 @@ const Single = () => {
     )
   }, [cards, counterAgent, id])
 
+  const {number, data, balance, surname, name, patronymic, my} = card
+
   console.log (card)
 
   return (
     
       <div className="card_pay" >
-      <p>{card.number}</p>
-      <p>{card.data}</p>
-      <p>{card.balance
-      ? card.balance
-      : card.name
+      <p>{number}</p>
+      <p>{data}</p>
+      <p>{my
+      ? balance
+      : `${surname} ${name} ${patronymic}`
       }</p>
     </div>
 

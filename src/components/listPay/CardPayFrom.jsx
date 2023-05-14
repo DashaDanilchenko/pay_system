@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { selectedCardFrom } from "../../store/cardsSlice"
+import { resetStylesFrom, selectedCardFrom } from "../../store/cardsSlice"
 
 const CardPayFrom = ({card, setIdFrom, setSummaFrom, setFromNumberCard}) => {
 
@@ -12,6 +12,7 @@ const dataCard = (id, balance, number) => {
   setIdFrom(id)
   setSummaFrom(balance.balance)
   setFromNumberCard(number.number)
+  dispatch (resetStylesFrom())
   dispatch (selectedCardFrom(id))
 }
 

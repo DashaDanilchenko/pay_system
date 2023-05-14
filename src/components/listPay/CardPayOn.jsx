@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
-import { selectedCardOn } from "../../store/cardsSlice"
-import { selectedCardOnCA } from "../../store/counterAgentsSlice"
+import { resetStylesOn, selectedCardOn } from "../../store/cardsSlice"
+import { resetStylesOnCA, selectedCardOnCA } from "../../store/counterAgentsSlice"
 
 const CardPayOn = ({card, setIdOn, setOnNumberCard, setName, setBalance}) => {
 
@@ -13,6 +13,8 @@ const CardPayOn = ({card, setIdOn, setOnNumberCard, setName, setBalance}) => {
     setOnNumberCard(number.number)
     setName(`${surname.surname} ${name.name} ${patronymic.patronymic}`)
     setBalance(balance.balance)
+    dispatch (resetStylesOn())
+    dispatch (resetStylesOnCA())
     dispatch (selectedCardOn(id))
     dispatch (selectedCardOnCA(id))
   }

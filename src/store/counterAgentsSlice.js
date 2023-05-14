@@ -13,8 +13,11 @@ const counterAgentSlice = createSlice({
             state.counterAgent = state.counterAgent.filter(card => card.id !== action.payload)
         },
 
+        resetStylesOnCA(state) {
+          state.counterAgent = state.counterAgent.map(card => { return {...card, colorOn: false}})
+        },
+
         selectedCardOnCA(state, action) {
-            // console.log(action)
             state.counterAgent = state.counterAgent.map(card => { return {...card, colorOn: false}})
             state.counterAgent = state.counterAgent.map(card => {
               if (card.id !== action.payload.id) {
@@ -38,6 +41,6 @@ const counterAgentSlice = createSlice({
 })
 
 
-export const { delCardCA, addCardCA, selectedCardOnCA } = counterAgentSlice.actions
+export const { delCardCA, addCardCA, resetStylesOnCA, selectedCardOnCA } = counterAgentSlice.actions
 
 export default counterAgentSlice.reducer

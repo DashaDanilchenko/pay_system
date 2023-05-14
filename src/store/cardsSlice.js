@@ -32,9 +32,15 @@ const cardsSlice = createSlice({
           state.cards = state.cards.filter(card => card.id !== action.payload)
         },
 
-        selectedCardFrom(state, action) {
-          // console.log(action)
+        resetStylesFrom(state) {
           state.cards = state.cards.map(card => { return {...card, colorFrom: false}})
+        },
+
+        resetStylesOn(state) {
+          state.cards = state.cards.map(card => { return {...card, colorOn: false}})
+        },
+
+        selectedCardFrom(state, action) {
           state.cards = state.cards.map(card => {
             if (card.id !== action.payload.id) {
               return card;
@@ -44,8 +50,6 @@ const cardsSlice = createSlice({
         },
 
         selectedCardOn(state, action) {
-          // console.log(action)
-          state.cards = state.cards.map(card => { return {...card, colorOn: false}})
           state.cards = state.cards.map(card => {
             if (card.id !== action.payload.id) {
               return card;
@@ -66,6 +70,6 @@ const cardsSlice = createSlice({
 })
 
 
-export const { plusBalance, minusBalance, selectedCardFrom, selectedCardOn , delCard, addCard } = cardsSlice.actions
+export const { plusBalance, minusBalance, resetStylesFrom, resetStylesOn, selectedCardFrom, selectedCardOn , delCard, addCard } = cardsSlice.actions
 
 export default cardsSlice.reducer

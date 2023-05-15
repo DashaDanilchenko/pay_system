@@ -21,7 +21,6 @@ const historySlice = createSlice({
                 time: genTime(),
                 date: genData(),
                 my: action.payload.isMy,
-                error: action.payload.isError,
             })
         }, 
         

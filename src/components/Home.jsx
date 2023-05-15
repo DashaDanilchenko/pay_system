@@ -20,24 +20,10 @@ const Home = () => {
   const [onNumberCard, setOnNumberCard] = useState('')
   const [name, setName] = useState('')
   const [isMy, setIsMy] = useState(false)
-  const [isError, setIsError] = useState(false)
+  // const [isError, setIsError] = useState(false)
 
   const dispatch = useDispatch()
 
-  function conditions() {
-    if (summa <= 0 ) {
-      setIsError(true)
-      return alert('Enter summa')
-    }
-    if (idOn.id === idFrom.id) {
-      setIsError(true)
-      return alert('Choose another card')
-    }
-    if (summaFrom <= summa) {
-      setIsError(true)
-      return alert('Not enough money')
-    }
-  }
 
   function reset() {
     dispatch (resetStylesFrom())
@@ -48,16 +34,23 @@ const Home = () => {
     setName('')
     setSumma(0)
     setAppointment('')
-    setIsError(false)
   }
 
   const pay = () => {
   
-  conditions()
+    if (summa <= 0 ) {
+      return alert('Enter summa')
+    }
+    if (idOn.id === idFrom.id) {
+      return alert('Choose another card')
+    }
+    if (summaFrom <= summa) {
+      return alert('Not enough money')
+    }
   
   dispatch (plusBalance({idOn, summa}))
   dispatch (minusBalance({idFrom, summa}))
-  dispatch (newItemHistory({fromNumberCard, onNumberCard, summa, name, appointment, isMy, isError}))
+  dispatch (newItemHistory({fromNumberCard, onNumberCard, summa, name, appointment, isMy}))
   
   reset()
 }

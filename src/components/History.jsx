@@ -8,9 +8,7 @@ const History = () => {
   return (
     <div>
       {history.map((item) =>
-        item.error
-      ? ''
-      : <ItemHistory key={item.id} item={item}/>
+      <ItemHistory key={item.id} item={item}/>
       )}
     </div>
   )

@@ -20,7 +20,6 @@ const Home = () => {
   const [onNumberCard, setOnNumberCard] = useState('')
   const [name, setName] = useState('')
   const [isMy, setIsMy] = useState(false)
-  // const [isError, setIsError] = useState(false)
 
   const dispatch = useDispatch()
 

@@ -5,7 +5,7 @@ import Context from "../../Context"
 
 const CardPayFrom = ({card }) => {
 
-const {id, number, data, balance, colorFrom} = card
+const {id, number, date, balance, colorFrom} = card
 
 const dispatch = useDispatch()
 
@@ -22,7 +22,7 @@ const dataCard = (id, balance, number) => {
   return (
     <div className={`card_pay ${colorFrom? 'color': ''}`} onClick={() => dataCard({id}, {balance}, {number})}>
       <p>{number}</p>
-      <p>{data}</p>
+      <p>{date}</p>
       <p>{balance}</p>
     </div>
   )

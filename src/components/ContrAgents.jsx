@@ -17,7 +17,7 @@ const ContrAgents = () => {
   function resetDataCA () {
     reset({
       number: '',
-      data: '',
+      date: '',
       surname: '',
       name: '',
       patronymic: '',
@@ -25,21 +25,23 @@ const ContrAgents = () => {
   }
 
   const createCardCA = (card) => {
-    const {number, data, name, surname, patronymic} = card
-    dispatch(addCardCA({number, data, name, surname, patronymic}))
+    const {number, date, name, surname, patronymic} = card
+    dispatch(addCardCA({number, date, name, surname, patronymic}))
     resetDataCA()
   }
 
-  const editCardCA = (id, number, data, surname, name, patronymic) => {
+  const editCardCA = (id, number, date, surname, name, patronymic) => {
     reset({
       number,
-      data,
+      date,
       surname,
       name,
       patronymic,
     })
     dispatch(delCardCA(id))
   }
+
+  console.log(errors)
 
  
 
@@ -48,10 +50,26 @@ const ContrAgents = () => {
       <div className="card_container">
       <form onSubmit={handleSubmit(createCardCA)}>
       <label htmlFor="number">
-      Number : <input type="number" id="number" name="number"  {... register('number')}/>
+      Number : <input type="number" id="number" name="number"  {... register('number',
+      {required: 'is require', 
+      minLength: {
+        value:8,
+        message:'wrongh',
+     },
+    maxLength: {
+        value:8,
+        message:'wrongh',
+     },
+    }
+      )}/>
       </label>
-      <label htmlFor="data">
-      Data : <input type="text" id="data" name="data" {... register('data')}/>
+      <label htmlFor="date">
+      {errors.date && <p>{errors.date?.message}</p>}
+      Date : <input type="text" id="date" name="date" placeholder="01/01/01" {... register('date', 
+      {required: 'is require', pattern: {
+         value:"MM/dd/yyyy",
+         message:'wrongh',
+      }} )}/>
       </label>
       <label htmlFor="surname">
       Surname : <input type="text" id="surname" name="surname"  {... register('surname')}/>
@@ -70,7 +88,7 @@ const ContrAgents = () => {
             <Card card={card} />
           </Link>
             <button onClick={() => dispatch(delCardCA(card.id))}>delete</button>
-            <button onClick={() => editCardCA(card.id, card.number, card.data, card.surname, card.name, card.patronymic)}>edit</button>
+            <button onClick={() => editCardCA(card.id, card.number, card.date, card.surname, card.name, card.patronymic)}>edit</button>
         </div>
        )}
       </div>

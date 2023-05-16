@@ -1,11 +1,11 @@
 const Card = ({card}) => {
 
-  const { number, data, balance,  surname, name, patronymic, my} = card
+  const { number, date, balance,  surname, name, patronymic, my} = card
 
   return (
     <div className="card_pay">
       <p>{number}</p>
-      <p>{data}</p>
+      <p>{date}</p>
       <p>{my
       ? balance
       : `${surname} ${name} ${patronymic}`

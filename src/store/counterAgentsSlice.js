@@ -30,8 +30,8 @@ const counterAgentSlice = createSlice({
         addCardCA(state, action) {
             state.counterAgent.push({
               id: randomId(),
-              number: genNumber(),
-              data: genData(),
+              number: action.payload.number,
+              data: action.payload.data,
               surname: action.payload.surname,
               name: action.payload.name,
               patronymic: action.payload.patronymic,

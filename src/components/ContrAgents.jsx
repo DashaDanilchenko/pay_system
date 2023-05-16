@@ -7,6 +7,8 @@ import { useState } from "react";
 
 const ContrAgents = () => {
 
+  const [number, setNumber] = useState('')
+  const [data, setData] = useState('')
   const [name, setName] = useState('')
   const [surname, setSurname] = useState('')
   const [patronymic, setPatronymic] = useState('')
@@ -15,13 +17,17 @@ const ContrAgents = () => {
   const dispatch = useDispatch()
 
   const createCardCA = () => {
-    dispatch(addCardCA({name, surname, patronymic}))
+    dispatch(addCardCA({number, data, name, surname, patronymic}))
+    setNumber('')
+    setData('')
     setSurname('')
     setName('')
     setPatronymic('')
   }
 
-  const editCardCA = (id, surname, name, patronymic) => {
+  const editCardCA = (id, number, data, surname, name, patronymic) => {
+    setNumber(number)
+    setData(data)
     setSurname(surname)
     setName(name)
     setPatronymic(patronymic)
@@ -32,6 +38,12 @@ const ContrAgents = () => {
     <div>
       <div className="card_container">
       <form>
+      <label htmlFor="number">
+      Number : <input type="text" id="number" name="number" value={number} onChange={(e) => setNumber(e.target.value)}/>
+      </label>
+      <label htmlFor="data">
+      Data : <input type="text" id="data" name="data" value={data} onChange={(e) => setData(e.target.value)}/>
+      </label>
       <label htmlFor="surname">
       Surname : <input type="text" id="surname" name="surname" value={surname} onChange={(e) => setSurname(e.target.value)}/>
       </label> 
@@ -49,7 +61,7 @@ const ContrAgents = () => {
             <Card card={card} />
           </Link>
             <button onClick={() => dispatch(delCardCA(card.id))}>delete</button>
-            <button onClick={() => editCardCA(card.id, card.surname, card.name, card.patronymic)}>edit</button>
+            <button onClick={() => editCardCA(card.id, card.number, card.data, card.surname, card.name, card.patronymic)}>edit</button>
         </div>
        )}
       </div>

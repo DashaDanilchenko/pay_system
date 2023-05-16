@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { counterAgent } from "../data";
-import { randomId, genNumber, genData } from "../helpers"
+import { randomId } from "../helpers"
 
 const counterAgentSlice = createSlice({
     name: 'counterAgent',
@@ -28,6 +28,8 @@ const counterAgentSlice = createSlice({
           },
 
         addCardCA(state, action) {
+
+          console.log(action)
             state.counterAgent.push({
               id: randomId(),
               number: action.payload.number,

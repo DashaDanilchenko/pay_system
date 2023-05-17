@@ -41,10 +41,6 @@ const ContrAgents = () => {
     dispatch(delCardCA(id))
   }
 
-  console.log(errors)
-
- 
-
   return (
     <div>
       <div className="card_container">
@@ -54,32 +50,51 @@ const ContrAgents = () => {
       {required: 'is require', 
       minLength: {
         value:8,
-        message:'wrongh',
+        message:'Enter an eight-digit number',
      },
     maxLength: {
         value:8,
-        message:'wrongh',
+        message:'Enter an eight-digit number',
      },
     }
       )}/>
       </label>
+      {errors.number && <p>{errors.number?.message}</p>}
       <label htmlFor="date">
-      {errors.date && <p>{errors.date?.message}</p>}
-      Date : <input type="text" id="date" name="date" placeholder="01/01/01" {... register('date', 
+      Date : <input type="text" id="date" name="date" placeholder="31/12/2000" {... register('date', 
       {required: 'is require', pattern: {
-         value:"MM/dd/yyyy",
-         message:'wrongh',
+         value: /^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$/g,
+         message:'Enter the date according to the template 31/12/2000',
       }} )}/>
       </label>
+      {errors.date && <p>{errors.date?.message}</p>}
       <label htmlFor="surname">
-      Surname : <input type="text" id="surname" name="surname"  {... register('surname')}/>
+      Surname : <input type="text" id="surname" name="surname"  {... register('surname',
+       {required: 'is require', pattern: {
+        value: /[a-zA-Z]/,
+        message:'Enter only letters',
+     }}
+      )}/>
       </label> 
+      {errors.surname && <p>{errors.surname?.message}</p>}
       <label htmlFor="name">
-        Name : <input type="text" id="name" name="name" {... register('name')}/>
+        Name : <input type="text" id="name" name="name" {... register('name',
+         {required: 'is require', pattern: {
+          value: /[a-zA-Z]/,
+          message:'Enter only letters',
+       }}
+        )}/>
       </label>
+      {errors.name && <p>{errors.name?.message}</p>}
       <label htmlFor="patronymic">
-      Patronymic : <input type="text" id="patronymic" name="patronymic"  {... register('patronymic')}/>
-      </label> 
+      Patronymic : <input type="text" id="patronymic" name="patronymic"  {... register('patronymic', 
+       {required: 'is require', pattern: {
+        value: /[a-zA-Z]/,
+        message:'Enter only letters',
+     }}
+      )}/>
+      </label>
+      {errors.patronymic && <p>{errors.patronymic?.message}</p>} 
         <button>Add new card</button>
       </form>
         {counterAgent.map((card) =>

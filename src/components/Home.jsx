@@ -38,12 +38,15 @@ const Home = () => {
   const pay = () => {
   
     if (summa <= 0 ) {
+      reset()
       return alert('Enter summa')
     }
     if (idOn.id === idFrom.id) {
+      reset()
       return alert('Choose another card')
     }
     if (summaFrom <= summa) {
+      reset()
       return alert('Not enough money')
     }
   

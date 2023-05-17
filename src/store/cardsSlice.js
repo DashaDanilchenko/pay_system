@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { cards } from "../data";
-import { randomId, genNumber, genData } from "../helpers"
+import { randomId } from "../helpers"
 
 const cardsSlice = createSlice({
     name: 'cards',
@@ -58,12 +58,12 @@ const cardsSlice = createSlice({
           })
         },
 
-        addCard(state) {
+        addCard(state, action) {
           state.cards.push({
             id: randomId(),
             my: true,
-            number: genNumber(),
-            data: genData(),
+            number: action.payload.number,
+            date: action.payload.date,
             balance: 0,
           })
         }

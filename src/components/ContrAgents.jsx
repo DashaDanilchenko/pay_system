@@ -46,7 +46,8 @@ const ContrAgents = () => {
       <div className="card_container">
       <form onSubmit={handleSubmit(createCardCA)}>
       <label htmlFor="number">
-      Number : <input type="number" id="number" name="number"  {... register('number',
+      Number : <input type="number" id="number" name="number"  placeholder="Eight-digit number"
+      {... register('number',
       {required: 'is require', 
       minLength: {
         value:8,

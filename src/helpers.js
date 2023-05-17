@@ -1,5 +1,4 @@
 const ALL_STRING_ID = '1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'
-const ALL_STRING_NUMBER = '1234567890'
 
 
 function randomNumber(n, allStr) {
@@ -14,16 +13,6 @@ function randomNumber(n, allStr) {
 export function randomId() {
     let id = randomNumber(10, ALL_STRING_ID)
     return id
-}
-
-export function genNumber() {
-    
-    let str_1 = randomNumber(4, ALL_STRING_NUMBER);
-    let str_2 = randomNumber(4, ALL_STRING_NUMBER);
-    let str_3 = randomNumber(4, ALL_STRING_NUMBER);
-    let str_4 = randomNumber(4, ALL_STRING_NUMBER);
-   
-    return `${str_1} ${str_2} ${str_3} ${str_4}`;
 }
 
 function getNewDate(data) {

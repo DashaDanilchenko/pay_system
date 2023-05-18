@@ -43,7 +43,7 @@ const ContrAgents = () => {
 
   return (
     <div>
-      <div className="card_container">
+      <div >
       <form onSubmit={handleSubmit(createCardCA)}>
       <label htmlFor="number">
       Number : <input type="number" id="number" name="number"  placeholder="Eight-digit number"
@@ -98,8 +98,9 @@ const ContrAgents = () => {
       {errors.patronymic && <p>{errors.patronymic?.message}</p>} 
         <button>Add new card</button>
       </form>
-        {counterAgent.map((card) =>
-        <div key={card.id}> 
+      <div className="card_container">
+      {counterAgent.map((card) =>
+        <div className="container_for_card" key={card.id}> 
           <Link to={`/${card.id}`}>
             <Card card={card} />
           </Link>
@@ -107,6 +108,8 @@ const ContrAgents = () => {
             <button onClick={() => editCardCA(card.id, card.number, card.date, card.surname, card.name, card.patronymic)}>edit</button>
         </div>
        )}
+      </div>
+        
       </div>
     </div> 
   )

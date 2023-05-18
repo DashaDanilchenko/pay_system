@@ -1,11 +1,19 @@
 form {
     display: flex;
     flex-direction: column;
+    background: #88928c;
+    margin: 10px auto;
+    width: 330px;
     label {
         margin: 10px;
+        color: #f9f1e0;
     }
     button {
         width: 70px;
         margin: 10px;
+        padding: 3px;
+        background: #fdfaec;
+        border: none;
+        color: #88928c;
     }
 }

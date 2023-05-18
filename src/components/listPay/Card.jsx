@@ -7,7 +7,7 @@ const Card = ({card}) => {
       <p>{number}</p>
       <p>{date}</p>
       <p>{my
-      ? balance
+      ? `${balance} $`
       : `${surname} ${name} ${patronymic}`
       }</p>
     </div>

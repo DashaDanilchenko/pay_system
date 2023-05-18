@@ -1,41 +1,58 @@
-.card_container {
-    display: flex;
-    flex-wrap: wrap;
+body {
+    background: #a07a67;
+   margin: 0;
+   padding: 0;
+}
+
+h2 {
+    color: #1a0e10;
+    margin: 20px 10px;
+    text-align: center;
 }
 
 .container_from {
     display: flex;
     position: fixed;
+    left: 100px;
     flex-direction: column;
-    width: 500px;
-    padding: 40px;
-    background: #F8F8F8;
+    width: 400px;
+    padding: 20px;
+    background: #88928c;
     height: 300px;
     box-sizing: border-box;
+    p {
+        color: #f9f1e0;
+    }
 }
 
 .container_on {
     display: flex;
     position: fixed;
-    right: 0;
+    right: 100px;
     flex-direction: column;
-    width: 500px;
-    padding: 40px;
-    background: #F8F8F8;
+    width: 400px;
+    padding: 20px;
+    background: #88928c;
     height: 300px;
     box-sizing: border-box;
+    p {
+        color: #f9f1e0;;
+    }
 }
 
 .container_form {
     display: flex;
     position: fixed;
-    top: 400px;
+    margin: 0;
+    top: 420px;
     flex-direction: column;
     width: 100vw;
     padding: 40px;
-    background: #F8F8F8;
-    height: 300px;
+    background: #88928c;
     box-sizing: border-box;
+    p {
+        color: #f9f1e0;
+    }
 }
 
 .card_select {
@@ -44,13 +61,41 @@
 
 
 .card_pay {
-    background: blanchedalmond;
+    background: #f9f1e0;
     padding: 20px;
     margin: 30px;
     width: 250px;
     box-sizing: border-box;
+    p {
+        color: #525954;
+    }
 }
 
 .color {
-    background: rgb(153, 111, 140);
+    background: #daaf87;
+}
+
+.container_for_card {
+    background: #88928c;
+    margin: 10px;
+    padding: 10px;
+    a {
+        text-decoration: none;
+    }
+    button {
+        width: 70px;
+        margin: 10px;
+        padding: 3px;
+        background: #fdfaec;
+        border: none;
+        color: #88928c;
+        margin: 0 0 0 30px;
+    }
+}
+
+.card_container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1050px;
+    margin: 0 auto;
 }

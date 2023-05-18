@@ -30,7 +30,7 @@ const CardPayOn = ({card}) => {
       <p>{date}</p>
       <p>
         {my
-        ? balance
+        ?` ${balance} $`
         :`${surname} ${name} ${patronymic}`}
       </p>
     </div>

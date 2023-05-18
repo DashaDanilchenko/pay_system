@@ -23,7 +23,7 @@ const dataCard = (id, balance, number) => {
     <div className={`card_pay ${colorFrom? 'color': ''}`} onClick={() => dataCard({id}, {balance}, {number})}>
       <p>{number}</p>
       <p>{date}</p>
-      <p>{balance}</p>
+      <p>{balance} $</p>
     </div>
   )
 }

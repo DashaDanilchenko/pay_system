@@ -36,7 +36,7 @@ const Cards = () => {
 
   return (
     <div>
-       <div className="card_container">
+       <div >
        <form onSubmit={handleSubmit(createCard)}>
       <label htmlFor="number">
       Number : <input type="number" id="number" name="number" placeholder="Eight-digit number"
@@ -65,8 +65,9 @@ const Cards = () => {
      
         <button>Add new card</button>
       </form>
-        {cards.map((card) =>
-        <div key={card.id}> 
+      <div className="card_container">
+      {cards.map((card) =>
+        <div className="container_for_card" key={card.id}> 
         <Link to={`/${card.id}`}>
           <Card card={card} />
         </Link>
@@ -74,6 +75,8 @@ const Cards = () => {
         <button onClick={() => editCard(card.id, card.number, card.date)}>edit</button>
         </div> 
         )}
+      </div>
+        
       </div>
     </div>
   )

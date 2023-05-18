@@ -73,7 +73,7 @@ const context = {
 
   return (
     <Context.Provider value={ context }>
-      <div >
+      <div>
       <h2>Card transfer</h2>
       <div className="container_from">
       <p>Choose the card from which funds will be debited:</p>

@@ -2,6 +2,7 @@ body {
     background: #a07a67;
    margin: 0;
    padding: 0;
+   font-family: sans-serif;
 }
 
 h2 {
@@ -13,7 +14,7 @@ h2 {
 .container_from {
     display: flex;
     position: fixed;
-    left: 100px;
+    left: 400px;
     flex-direction: column;
     width: 400px;
     padding: 20px;
@@ -28,7 +29,7 @@ h2 {
 .container_on {
     display: flex;
     position: fixed;
-    right: 100px;
+    right: 400px;
     flex-direction: column;
     width: 400px;
     padding: 20px;
@@ -44,9 +45,10 @@ h2 {
     display: flex;
     position: fixed;
     margin: 0;
-    top: 420px;
+    top: 450px;
+    left: 400px;
     flex-direction: column;
-    width: 100vw;
+    width: calc(100vw - 800px) ;
     padding: 40px;
     background: #88928c;
     box-sizing: border-box;

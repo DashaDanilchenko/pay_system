@@ -12,12 +12,12 @@ function App() {
   return (
    <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Layout/>}>
+      <Route path='/pay_system/' element={<Layout/>}>
         <Route index element={<Home/>}/>
-        <Route path='cards' element={<Cards/>}/>
-        <Route path='contrAgents' element={<ContrAgents/>}/>
-        <Route path='history' element={<History/>}/>
-        <Route path='/:id' element={<Single/>}/>
+        <Route path='/pay_system/cards' element={<Cards/>}/>
+        <Route path='/pay_system/contrAgents' element={<ContrAgents/>}/>
+        <Route path='/pay_system/history' element={<History/>}/>
+        <Route path='/pay_system/:id' element={<Single/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Route>
     </Routes>

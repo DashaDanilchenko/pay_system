@@ -101,7 +101,7 @@ const ContrAgents = () => {
       <div className="card_container">
       {counterAgent.map((card) =>
         <div className="container_for_card" key={card.id}> 
-          <Link to={`/${card.id}`}>
+          <Link to={`/pay_system/${card.id}`}>
             <Card card={card} />
           </Link>
             <button onClick={() => dispatch(delCardCA(card.id))}>delete</button>

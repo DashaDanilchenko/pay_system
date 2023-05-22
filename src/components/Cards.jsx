@@ -68,7 +68,7 @@ const Cards = () => {
       <div className="card_container">
       {cards.map((card) =>
         <div className="container_for_card" key={card.id}> 
-        <Link to={`/${card.id}`}>
+        <Link to={`/pay_system/${card.id}`}>
           <Card card={card} />
         </Link>
         <button onClick={() => dispatch(delCard(card.id))}>delete</button>

@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
@@ -10,7 +10,7 @@ import Single from './components/Single';
 
 function App() {
   return (
-   <BrowserRouter>
+   
     <Routes>
       <Route path='/pay_system/' element={<Layout/>}>
         <Route index element={<Home/>}/>
@@ -21,7 +21,7 @@ function App() {
         <Route path='*' element={<NotFound/>}/>
       </Route>
     </Routes>
-   </BrowserRouter>
+   
   );
 }
 

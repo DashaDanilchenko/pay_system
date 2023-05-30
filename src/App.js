@@ -1,5 +1,5 @@
 
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch } from "react-router";
 import Layout from './components/Layout';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
@@ -11,7 +11,7 @@ import Single from './components/Single';
 function App() {
   return (
    <Switch>
- <Route path='/pay_system/' element={<Layout/>}>
+      <Route path='/pay_system/' element={<Layout/>}>
         <Route index element={<Home/>}/>
         <Route path='/pay_system/cards' element={<Cards/>}/>
         <Route path='/pay_system/contrAgents' element={<ContrAgents/>}/>

@@ -10,9 +10,8 @@ import Single from './components/Single';
 
 function App() {
   return (
-   
-    <Switch>
-      <Route path='/pay_system/' element={<Layout/>}>
+   <Switch>
+ <Route path='/pay_system/' element={<Layout/>}>
         <Route index element={<Home/>}/>
         <Route path='/pay_system/cards' element={<Cards/>}/>
         <Route path='/pay_system/contrAgents' element={<ContrAgents/>}/>
@@ -20,7 +19,11 @@ function App() {
         <Route path='/pay_system/:id' element={<Single/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Route>
-    </Switch>
+   </Switch>
+    
+     
+  
+   
    
   );
 }

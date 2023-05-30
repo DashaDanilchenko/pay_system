@@ -20,11 +20,8 @@ function App() {
         <Route path='*' element={<NotFound/>}/>
       </Route>
    </Switch>
-    
-     
-  
-   
-   
+      
+
   );
 }
 

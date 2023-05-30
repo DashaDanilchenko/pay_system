@@ -10,7 +10,6 @@ const historySlice = createSlice({
     reducers: {
 
         newItemHistory(state, action) {
-            console.log(action)
             state.history.push({
                 id: randomId(),
                 from: action.payload.fromNumberCard,

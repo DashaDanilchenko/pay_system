@@ -13,7 +13,6 @@ const CardPayOn = ({card}) => {
   const {setIdOn, setOnNumberCard, setName, setIsMy } = useContext(Context)
 
   const dataCard = (id, number, surname, name, patronymic, my) => {
-    console.log(my)
     setIdOn(id)
     setOnNumberCard(number.number)
     setName(`${surname.surname} ${name.name} ${patronymic.patronymic}`)

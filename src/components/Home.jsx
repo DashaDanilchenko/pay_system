@@ -6,11 +6,12 @@ import { minusBalance, plusBalance, resetStylesFrom, resetStylesOn } from "../st
 import { newItemHistory } from "../store/historySlice"
 import { resetStylesOnCA } from "../store/counterAgentsSlice"
 import Context from "../Context"
+import { useForm } from "react-hook-form"
 
 const Home = () => {
 
-  const [summa, setSumma] = useState(0)
-  const [appointment, setAppointment] = useState('')
+  // const [summa, setSumma] = useState(0)
+  // const [appointment, setAppointment] = useState('')
 
   const [idFrom, setIdFrom] = useState(null)
   const [idOn, setIdOn] = useState(null)
@@ -24,29 +25,35 @@ const Home = () => {
   const dispatch = useDispatch()
 
 
-  function reset() {
+  function resetData() {
     dispatch (resetStylesFrom())
     dispatch (resetStylesOn())
     dispatch (resetStylesOnCA())
     setFromNumberCard('')
     setOnNumberCard('')
     setName('')
-    setSumma(0)
-    setAppointment('')
+    reset ({
+      summa: '',
+      appointment: '',
+    })
+    // setSumma(0)
+    // setAppointment('')
   }
 
-  const pay = () => {
+  const pay = (payCard) => {
+
+    const {summa, appointment} = payCard
   
-    if (summa <= 0 ) {
-      reset()
+    if (payCard.summa <= 0 ) {
+      resetData()
       return alert('Enter summa')
     }
     if (idOn.id === idFrom.id) {
-      reset()
+      resetData()
       return alert('Choose another card')
     }
-    if (summaFrom <= summa) {
-      reset()
+    if (summaFrom <= payCard.summa) {
+      resetData()
       return alert('Not enough money')
     }
   
@@ -54,7 +61,7 @@ const Home = () => {
   dispatch (minusBalance({idFrom, summa}))
   dispatch (newItemHistory({fromNumberCard, onNumberCard, summa, name, appointment, isMy}))
   
-  reset()
+  resetData()
 }
 
 
@@ -71,6 +78,10 @@ const context = {
   setIsMy,
 };
 
+const {register, handleSubmit, reset, formState: {errors}} = useForm({
+  mode: 'onChange'
+})
+
   return (
     <Context.Provider value={ context }>
       <div>
@@ -84,15 +95,21 @@ const context = {
       <CounterAgentsPay />
      </div>
      
-      <form className="container_form">
+      <form className="container_form" onSubmit={handleSubmit(pay)}>
         <p>Enter the transfer amount</p>
         <label htmlFor="summa">
-        Summa : <input type="number" id="summa" name="summa" value={summa} onChange={(e) => setSumma(e.target.value)}/>
+        Summa : <input type="number" id="summa" name="summa"  {... register('summa', 
+       {required: 'is require', pattern: {
+        value: /[0-9]/,
+        message:'Enter only number',
+     }}
+      )}/>
         </label>
+        {errors.summa && <p>{errors.summa?.message}</p>}
         <label htmlFor="appointment">
-        Appointment : <input type="text" id="appointment" name="appointment" value={appointment} onChange={(e) => setAppointment(e.target.value)}/>
+        Appointment : <input type="text" id="appointment" name="appointment"  {... register('appointment')}/>
         </label>
-        <button type="button" onClick={pay}>Submit</button>
+        <button>Submit</button>
       </form>
     </div>
     </Context.Provider>

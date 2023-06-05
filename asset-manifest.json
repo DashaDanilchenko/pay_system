@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/pay_system/static/css/main.11538898.css",
-    "main.js": "/pay_system/static/js/main.704110a1.js",
+    "main.js": "/pay_system/static/js/main.e1dac92e.js",
     "static/js/787.1f7f16fa.chunk.js": "/pay_system/static/js/787.1f7f16fa.chunk.js",
     "index.html": "/pay_system/index.html",
     "main.11538898.css.map": "/pay_system/static/css/main.11538898.css.map",
-    "main.704110a1.js.map": "/pay_system/static/js/main.704110a1.js.map",
+    "main.e1dac92e.js.map": "/pay_system/static/js/main.e1dac92e.js.map",
     "787.1f7f16fa.chunk.js.map": "/pay_system/static/js/787.1f7f16fa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.11538898.css",
-    "static/js/main.704110a1.js"
+    "static/js/main.e1dac92e.js"
   ]
 }

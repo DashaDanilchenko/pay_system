@@ -10,9 +10,6 @@ import { useForm } from "react-hook-form"
 
 const Home = () => {
 
-  // const [summa, setSumma] = useState(0)
-  // const [appointment, setAppointment] = useState('')
-
   const [idFrom, setIdFrom] = useState(null)
   const [idOn, setIdOn] = useState(null)
   const [summaFrom, setSummaFrom] = useState(null)
@@ -36,8 +33,6 @@ const Home = () => {
       summa: '',
       appointment: '',
     })
-    // setSumma(0)
-    // setAppointment('')
   }
 
   const pay = (payCard) => {
@@ -66,7 +61,7 @@ const Home = () => {
 
 
 
-// localStorage.clear()
+localStorage.clear()
 
 const context = { 
   setIdFrom,

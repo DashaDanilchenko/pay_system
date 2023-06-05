@@ -4,10 +4,10 @@ const Layout = () => {
   return (
     <div className="container">
         <nav>
-            <NavLink to="/pay_system/">Home</NavLink>
-            <NavLink to="/pay_system/cards">Cards</NavLink>
-            <NavLink to="/pay_system/contrAgents">Contr Agents</NavLink>
-            <NavLink to="/pay_system/history">History</NavLink>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/cards">Cards</NavLink>
+            <NavLink to="/contrAgents">Contr Agents</NavLink>
+            <NavLink to="/history">History</NavLink>
         </nav>
         <main>
             <Outlet/>

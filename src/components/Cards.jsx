@@ -17,19 +17,21 @@ const Cards = () => {
     reset({
       number: '',
       date: '',
+      summa: 0,
     })
   }
 
   const createCard = (card) => {
-    const {number, date} = card
-    dispatch(addCard({number, date}))
+    const {number, date, summa} = card
+    dispatch(addCard({number, date, summa}))
     resetData()
   }
 
-  const editCard = (id, number, date) => {
+  const editCard = (id, number, date, summa) => {
     reset({
       number,
       date,
+      summa,
     })
     dispatch(delCard(id))
   }
@@ -62,6 +64,15 @@ const Cards = () => {
       }} )}/>
       </label>
       {errors.date && <p>{errors.date?.message}</p>}
+
+      <label htmlFor="summa">
+      Date : <input type="number" id="summa" name="summa" placeholder="enter summa" {... register('summa', 
+      {required: 'is require', pattern: {
+         value: /[0-9]/,
+         message:'Enter summa',
+      }} )}/>
+      </label>
+      {errors.summa && <p>{errors.summa?.message}</p>}
      
         <button>Add new card</button>
       </form>
@@ -72,7 +83,7 @@ const Cards = () => {
           <Card card={card} />
         </Link>
         <button onClick={() => dispatch(delCard(card.id))}>delete</button>
-        <button onClick={() => editCard(card.id, card.number, card.date)}>edit</button>
+        <button onClick={() => editCard(card.id, card.number, card.date, card.balance)}>edit</button>
         </div> 
         )}
       </div>

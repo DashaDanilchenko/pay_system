@@ -64,7 +64,7 @@ const cardsSlice = createSlice({
             my: true,
             number: action.payload.number,
             date: action.payload.date,
-            balance: 0,
+            balance: action.payload.summa,
           })
         }
     }

@@ -47,7 +47,7 @@ const Home = () => {
       resetData()
       return alert('Choose another card')
     }
-    if (summaFrom <= payCard.summa) {
+    if (summaFrom < payCard.summa) {
       resetData()
       return alert('Not enough money')
     }

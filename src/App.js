@@ -1,5 +1,5 @@
 
-import { Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Layout from './components/Layout';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
@@ -7,11 +7,10 @@ import Cards from './components/Cards';
 import ContrAgents from './components/ContrAgents';
 import History from './components/History';
 import Single from './components/Single';
-import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
      <Routes>
       <Route path='/pay_system/' element={<Layout/>}>
         <Route index element={<Home/>}/>
@@ -22,7 +21,7 @@ function App() {
         <Route path='*' element={<NotFound/>}/>
       </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
  
       
   

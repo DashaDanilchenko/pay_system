@@ -16,3 +16,9 @@ nav {
 .active {
     background: #274232
 }
+
+@media (max-width: 450px) {
+    nav {
+       display: flex;
+    }
+}

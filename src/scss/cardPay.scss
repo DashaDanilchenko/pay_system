@@ -11,10 +11,13 @@ h2 {
     text-align: center;
 }
 
+.container_pay {
+    display: flex;
+}
+
 .container_from {
     display: flex;
-    position: fixed;
-    left: 400px;
+    margin: 20px auto;
     flex-direction: column;
     width: 400px;
     padding: 20px;
@@ -28,8 +31,7 @@ h2 {
 
 .container_on {
     display: flex;
-    position: fixed;
-    right: 400px;
+    margin: 20px auto;
     flex-direction: column;
     width: 400px;
     padding: 20px;
@@ -43,13 +45,10 @@ h2 {
 
 .container_form {
     display: flex;
-    position: fixed;
-    margin: 0;
-    top: 450px;
-    left: 400px;
+    margin: 20px auto;
     flex-direction: column;
-    width: calc(100vw - 800px) ;
-    padding: 40px;
+    width: 400px;
+    padding: 20px;
     background: #88928c;
     box-sizing: border-box;
     p {
@@ -100,4 +99,17 @@ h2 {
     flex-wrap: wrap;
     max-width: 1050px;
     margin: 0 auto;
+}
+
+@media (max-width: 1050px) {
+    .container_pay  {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 450px) {
+    .container_from, .container_on, .container_form {
+        width: 360px;
+        padding: 10px;
+    }
 }

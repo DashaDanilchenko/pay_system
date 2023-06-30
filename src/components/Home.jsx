@@ -79,8 +79,8 @@ const {register, handleSubmit, reset, formState: {errors}} = useForm({
 
   return (
     <Context.Provider value={ context }>
-      <div>
       <h2>Card transfer</h2>
+      <div className="container_pay"> 
       <div className="container_from">
       <p>Choose the card from which funds will be debited:</p>
       <CardsPay />
@@ -90,7 +90,9 @@ const {register, handleSubmit, reset, formState: {errors}} = useForm({
       <CounterAgentsPay />
      </div>
      
-      <form className="container_form" onSubmit={handleSubmit(pay)}>
+      
+    </div>
+    <form className="container_form" onSubmit={handleSubmit(pay)}>
         <p>Enter the transfer amount</p>
         <label htmlFor="summa">
         Summa : <input type="number" id="summa" name="summa"  {... register('summa', 
@@ -106,7 +108,6 @@ const {register, handleSubmit, reset, formState: {errors}} = useForm({
         </label>
         <button>Submit</button>
       </form>
-    </div>
     </Context.Provider>
     
   )
